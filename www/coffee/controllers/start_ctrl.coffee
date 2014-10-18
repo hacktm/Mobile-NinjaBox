@@ -92,6 +92,7 @@ gmApp.controller 'StartCtrl', ($scope, $ionicPopup, $ionicLoading, $state, $ioni
           accountManager.doResetPassword(email).then ((user) ->
             _loadingPopup.hide()
             console.log user
+            $state.go appStates.login
           ), (reason) ->
             _loadingPopup.hide()
     else

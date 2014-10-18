@@ -38,8 +38,9 @@ gmApp.constant('EVENTS', {
 
 appStates = {
   splashscreen: 'splashscreen'
-  welcome: 'start.welcome'
-  main: 'app.hosts-nearby'
+  welcome:      'start.welcome'
+  login:        'start.email-login'
+  main:         'app.hosts-nearby'
 }
 
 

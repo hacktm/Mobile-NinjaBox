@@ -29,36 +29,18 @@
 
             <label class="item item-input">
                 <span class="input-label">Greeting</span>
-                <input type="text" value="userData.callName" ng-model="userData.callName" has-focus="focus.email">
+                <input type="text" value="userData.greetingName" ng-model="userData.greetingName" has-focus="focus.email">
             </label>
             <div class="input-info">What name should we use to welcome you when you walk in?</div>
-            
-            <br>
-            
-            <div class="l-inline clearfix">
-                <ion-radio ng-model="userData.gender" value="1" name="gender">Mr.</ion-radio>
-                <ion-radio ng-model="userData.gender" value="2" name="gender">Ms.</ion-radio>
-            </div>
-
-            <br>
-            
-            <label class="item item-input">
-                <span class="input-label">First name</span>
-                <input type="text" placeholder="John" ng-model="userData.firstName" has-focus="focus.firstName">
-            </label>
-            <label class="item item-input">
-                <span class="input-label">Last name</span>
-                <input type="text" placeholder="Smith" ng-model="userData.lastName" has-focus="focus.lastName">
-            </label>
 
             <br>
 
             <label class="item item-input">
-                <span class="item-label">Password</span>
+                <span class="input-label">Password</span>
                 <input type="password" ng-model="userData.password">
             </label>
             <label class="item item-input">
-                <span class="item-label">Repeat</span>
+                <span class="input-label">Repeat</span>
                 <input type="password" ng-model="userData.password_confirmation">
             </label>
             <div class="input-info">Leave these fields blank if you don't want to change your password</div>
