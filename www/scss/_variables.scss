@@ -1,0 +1,212 @@
+
+// Colors
+// -------------------------------
+
+//$color-theme1:               #00585f;
+//$color-theme1-lighter:       #009393;
+//$color-theme1-darker:        #003c40;
+//$color-theme2:               #ff3800;
+//$color-theme3:               #f25f55; //#e56e5c;
+//$color-theme-background:     #eee;
+
+$color-theme1:               #2C3E50;
+$color-theme1-lighter:       #3A5169;
+$color-theme-dark:           #2C3E50;
+$color-theme2:               #2980B9;
+$color-theme3:               #3498DB;
+$color-theme4:               #E74C3C;
+$color-theme5:               #008554;
+$color-theme-background:     #ECF0F1;
+
+
+$light:                           #fafbfc;
+$stable:                          $color-theme-background;
+$positive:                        $color-theme2;
+$calm:                            #999;
+$balanced:                        $color-theme3;
+$energized:                       $color-theme4;
+$assertive:                       $color-theme5;
+$royal:                           #8a6de9;
+$dark:                            $color-theme-dark;
+
+
+
+
+// Base
+// -------------------------------
+
+$font-family-sans-serif:          "Bariol", Arial, sans-serif;
+$font-family-light-sans-serif:    "Bariol", Arial, "Lucida Grande", sans-serif;
+$font-family-serif:               Georgia, "Times New Roman", Times, serif;
+$font-family-monospace:           Monaco, Menlo, Consolas, "Courier New", monospace;
+
+$font-family-base:                $font-family-sans-serif;
+$font-size-base:                  18px;
+$font-size-large:                 22px;
+$font-size-small:                 13px;
+
+$line-height-base:                1.3; // 20/14
+$line-height-computed:            floor($font-size-base * $line-height-base) !default; // ~20px
+$line-height-large:               1.33 !default;
+$line-height-small:               1.5 !default;
+
+$headings-font-family:            $font-family-base;
+$headings-font-weight:            700;
+$headings-line-height:            1.2;
+
+$base-background-color:           $color-theme-background;
+$base-color:                      #202f2f;
+
+$content-padding:                 12px;
+
+$padding-large-vertical:          12px;
+$padding-large-horizontal:        18px;
+
+$padding-small-vertical:          3px;
+$padding-small-horizontal:        6px;
+
+
+
+// Content
+// -------------------------------
+
+
+
+// Buttons
+// -------------------------------
+
+$button-font-size:                18px;
+$button-height:                   44px !default;
+$button-padding:                  12px !default;
+$button-icon-size:                24px !default;
+
+$button-large-font-size:          20px !default;
+$button-large-height:             54px !default;
+$button-large-padding:            16px !default;
+$button-large-icon-size:          32px !default;
+
+
+$button-small-font-size:          15px;
+$button-small-height:             32px;
+
+
+// Bars
+// -------------------------------
+
+$bar-title-font-size:             18px;
+
+
+// Tabs
+// -------------------------------
+
+$tabs-height:                     56px;
+$tabs-text-font-size:             12px;
+$tabs-text-font-size-side-icon:   10px;
+$tabs-icon-size:                  32px;
+
+$tabs-striped-off-color:          #000;
+$tabs-striped-off-opacity:        0.8;
+$tabs-striped-border-width:       12px;
+
+
+// Panels
+// -------------------------------
+
+$panel-image-width: 60px;
+
+
+// Photos
+// -------------------------------
+
+$photo-thumb-width: 100px;
+$photo-thumb-height: 100px;
+
+
+// Items
+// -------------------------------
+
+//$item-padding:                    15px;
+
+
+// Item Editing
+// -------------------------------
+
+
+
+// Lists
+// -------------------------------
+
+
+
+// Cards
+// -------------------------------
+
+
+
+// Forms
+// -------------------------------
+
+$input-bg:                        #fff;
+$input-bg-disabled:               $base-background-color;
+
+$input-color:                     #111;
+$input-color-placeholder:         lighten($input-color, 60%);
+
+
+// Progress
+// -------------------------------
+
+
+// Toggle
+// -------------------------------
+
+
+
+// Checkbox
+// -------------------------------
+
+
+
+// Range
+// -------------------------------
+
+
+
+// Menus
+// -------------------------------
+
+
+
+// Grids
+// -------------------------------
+
+
+// Action Sheets
+// -------------------------------
+
+
+// Popups
+// -------------------------------
+
+
+// Loading
+// -------------------------------
+
+
+// Badges
+// -------------------------------
+
+
+
+// Z-Indexes
+// -------------------------------
+
+
+// Platform
+// -------------------------------
+
+
+// Ionicons Variables
+// --------------------------
+
+$ionicons-font-path: "../lib/ionic/fonts";

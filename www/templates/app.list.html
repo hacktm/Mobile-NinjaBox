@@ -1,0 +1,35 @@
+<ion-view title="{{ viewTitle }} Locations">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-nav ion-navicon" menu-toggle="left"></button>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+        <button class="button button-icon button-nav ion-ios7-refresh-empty" ng-click="tapRefresh()"></button>
+    </ion-nav-buttons>
+
+
+    <ion-content scroll="false" padding="false" class="has-header content" ng-class="{'screen-empty': hostsList.length == 0}">
+
+
+        <gm-host-list-item ng-if="hostsList.length > 0" ng-repeat="host in hostsList" ui-sref="app.host-details({hostId: host.business_id})"></gm-host-list-item>
+
+        
+        <div ng-if="hostsList.length == 0">
+            
+            <div><i class="icon l-giant ion-location"></i></div>
+
+            <br>
+
+            <p ng-if=" ! myPlaces">There are no GreetMe places nearby yet. Check again soon.</p>
+
+                
+            <div ng-if="myPlaces">
+                <p>You have not opted-in to any GreetMe place. Discover nearby places and get some discounts!</p>
+                <br>
+                <button class="button button-block" ui-sref="app.hosts-nearby">Find nearby places</button>
+            </div>
+
+        </div>
+
+    </ion-content>
+</ion-view>

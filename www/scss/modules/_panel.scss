@@ -1,0 +1,104 @@
+
+.panel {
+  display: block;
+  overflow: hidden;
+  margin: $padding-large-vertical $padding-base-horizontal;
+  background: #fff;
+  @include box-drop-shadow(1);
+
+  &.ng-enter {
+    transition: all ease-in-out 0.3s;
+  }
+
+  &.ng-enter, &.ng-leave.ng-leave-active {
+    opacity: 0;
+  }
+
+  &.ng-leave, &.ng-enter.ng-enter-active {
+    opacity: 1;
+  }
+}
+
+
+
+.panel-image {
+  float: left;
+  width: $panel-image-width;
+  height: $panel-image-width;
+}
+
+
+.panel-header {
+  padding: $padding-small-vertical $padding-base-horizontal;
+  border-bottom: 1px solid #ddd;
+  font-size: $font-size-small;
+  background-color: $balanced;
+  color: #fff;
+  text-shadow: 0px 0px 1px rgba(255,255,200, 0.1)
+}
+
+
+.panel-body {
+  margin: 0;
+  padding: $padding-large-vertical $padding-base-horizontal;
+  position: relative;
+}
+
+
+.panel-footer {
+  margin: 0;
+  padding: $padding-small-vertical $padding-base-horizontal;
+  border-top: 1px solid #ddd;
+  font-size: $font-size-small;
+  background-color: #f6f6f6;
+  color: $base-color;
+}
+
+
+.panel-content {
+  padding: $padding-small-vertical $content-padding;
+  margin-left: $panel-image-width;
+}
+
+
+.panel-title {
+  font-size: $font-size-base;
+  font-weight: normal;
+  color: $base-color;
+  text-decoration: none;
+  text-shadow: rgba($base-color, 0.2) 0px 0px 1px;
+  margin-bottom: $padding-small-vertical;
+  @include single-line;
+}
+
+
+.panel-meta {
+  margin: 0;
+  line-height: $font-size-small + 2px;
+  font-size: $font-size-small;
+  font-weight: normal;
+  color: #666;
+}
+
+
+.panel-right-icon {
+  position: absolute;
+  right: $padding-base-horizontal;
+  top: 50%; // push the icon down half the size of the container
+  margin-top: -(computed-line-height($font-size-large) / 2); // then pull the icon up half its height
+  font-size: $font-size-large;
+  color: #aaaaaa;
+}
+
+
+.panel--listItem {
+
+//  .panel-header {
+//    height: $font-size-base + $padding-small-vertical * 2;
+//  }
+
+  .panel-body {
+    height: $panel-image-width + $padding-large-vertical * 2;
+    padding-right: $padding-base-horizontal * 2;
+  }
+}

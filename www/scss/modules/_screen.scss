@@ -1,0 +1,16 @@
+
+.screen {}
+
+.screen-empty {
+	padding: 60px 30px;
+	color: $calm;
+	text-align: center;
+
+	.icon.l-giant {
+		font-size: 80px;
+	}
+}
+
+.screen-white {
+	background: #fff;
+}

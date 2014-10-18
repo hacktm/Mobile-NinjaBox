@@ -1,0 +1,40 @@
+<ion-view title="Welcome back">
+    <ion-nav-buttons side="right">
+        <button class="button button-nav" ng-click="login()">
+            <i class="icon ion-checkmark"></i>
+            Log In
+        </button>
+    </ion-nav-buttons>
+
+
+    <ion-content padding="false">
+        <!--<p>Login to existing account:</p>-->
+        <!--<h4>{{ startData.email }}</h4>-->
+
+        <form ng-submit="login()" novalidate>
+            <input type="submit" class="is-outside-viewport"/>
+
+
+            <div class="list">
+                <h5 class="padding-left">Email</h5>
+                <label class="item item-input padding-left">
+                    <i class="icon placeholder-icon ion-email"></i>
+                    <input type="email" placeholder="" ng-model="startData.email">
+                </label>
+
+                <h5 class="padding-left">Password</h5>
+                <label class="item item-input padding-left">
+                    <i class="icon placeholder-icon ion-unlocked"></i>
+                    <input type="password" ng-model="startData.password">
+                </label>
+            </div>
+        </form>
+
+        <p class="padding">
+            <button ui-sref="start.password-reset" class="button button-small button-clear button-dark font-weight-bold">Forgot Password?</button>
+        </p>
+
+    </ion-content>
+</ion-view>
+
+

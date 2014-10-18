@@ -1,0 +1,68 @@
+
+
+.color-black {
+  color: #000;
+}
+.color-dark-gray {
+  color: #333;
+}
+.color-gray {
+  color: #888;
+}
+.color-light-gray {
+  color: #ccc;
+}
+
+
+
+.block-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.text-center {
+  text-align: center;
+}
+
+.text-decoration-underline {
+  text-decoration: underline;
+}
+
+.block-80percent-center {
+  width: 80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+.font-size-xsmall() {
+  font-size: ($font-size-small - 2px);
+}
+.font-size-small {
+  font-size: $font-size-small;
+}
+.font-size-base {
+  font-size: $font-size-base;
+}
+.font-size-large {
+  font-size: $font-size-large;
+}
+.font-size-xlarge {
+  font-size: ($font-size-large + 4px);
+}
+.font-size-xxlarge {
+  font-size: ($font-size-large + 10px);
+}
+
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+
+.display-inline-block {
+  display: inline-block;
+}

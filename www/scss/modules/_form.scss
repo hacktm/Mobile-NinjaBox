@@ -1,0 +1,29 @@
+
+// @ionic
+// .item-input {
+//   box-shadow: inset 0px 1px 2px 0px rgba(#000, 0.4), inset 0px -1px 1px 0px rgba(#aaa, 0.5);
+//   border-bottom: 1px solid #eee;
+// }
+
+
+.l-inline .item-radio {
+	width: 50%;
+	float: left;
+	border-right: none;
+	margin-left: 0;
+	margin-right: 0;
+
+	&:first-child {
+		border-left: none;
+	}
+}
+.input-info {
+	padding: 6px 12px;
+	font-size: 13px;
+}
+
+// @ionic
+.placeholder-icon {
+  width: 24px;
+  font-size: 22px;
+}

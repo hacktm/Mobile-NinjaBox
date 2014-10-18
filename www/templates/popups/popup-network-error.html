@@ -1,0 +1,17 @@
+<div style="width: 220px">
+    <div ng-show="networkRetry.count > 0">
+        <h4>Network error</h4>
+        Please make sure you have data or wifi enabled on your phone.
+        <br>
+        <br>
+        Retrying network connection...
+        <br>
+        <i class="icon ion-looping" style="font-size: 20pt"></i>
+        <br>
+        Failed on retry #{{ networkRetry.count }}
+    </div>
+
+    <div ng-hide="networkRetry.count > 0" style="color: #adff2f">
+        <strong>Network connection recovered!</strong>
+    </div>
+</div>

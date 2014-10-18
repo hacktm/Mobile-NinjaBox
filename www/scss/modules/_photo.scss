@@ -1,0 +1,10 @@
+
+.photo {}
+
+.photo-thumb {
+	width: $photo-thumb-width;
+	height: $photo-thumb-height;
+	border: 1px solid #ddd;
+	@include box-sizing(content-box);
+	@include border-radius(2px);
+}

@@ -1,0 +1,15 @@
+{
+  "name": "humps",
+  "homepage": "https://github.com/domchristie/humps",
+  "version": "0.4.2",
+  "_release": "0.4.2",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.4.2",
+    "commit": "1ab793f9117dc7f570491d65d1711323f1a514fb"
+  },
+  "_source": "git://github.com/domchristie/humps.git",
+  "_target": "~0.4.2",
+  "_originalSource": "humps",
+  "_direct": true
+}

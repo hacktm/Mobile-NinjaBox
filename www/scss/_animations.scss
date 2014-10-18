@@ -1,0 +1,46 @@
+@import "variables";
+
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+@mixin animation($name, $duration, $iteration-count, $timing, $fill-mode) {
+  -webkit-animation-name: $name;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-iteration-count: $iteration-count;
+  -webkit-animation-timing-function: $timing;
+  -webkit-animation-fill-mode: $fill-mode;
+
+  animation-name: $name;
+  animation-duration: $duration;
+  animation-iteration-count: $iteration-count;
+  animation-timing-function: $timing;
+  animation-fill-mode: $fill-mode;
+}
+
+
+
+@include keyframes(flash) {
+  0%   {
+    opacity: 0.3;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.3;
+  }
+}
+
+
+.animation-flash-infinite {
+  @include animation(flash, 2s, infinite, linear, both)
+}

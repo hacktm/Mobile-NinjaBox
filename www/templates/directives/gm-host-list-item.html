@@ -1,0 +1,22 @@
+
+<a class="panel panel--imageLeft panel--listItem">
+
+    <div class="panel-header" ng-if="host.business_id == currentHost.business_id">
+        In range now
+    </div>
+
+    <div class="panel-body">
+        <img class="panel-image" ng-src="{{ host.logo_square_thumb_url }}" alt="{{ host.name }}"/>
+
+        <div class="panel-content">
+            <h2 class="panel-title">{{ host.name }}</h2>
+            <p class="panel-meta">{{ host.location_street }}</p>
+            <p class="panel-meta">{{ host.location_city }}</p>
+        </div>
+
+        <i class="panel-right-icon ion-chevron-right"></i>
+    </div>
+
+    <!-- <div class="panel-footer" ng-transclude>
+    </div> -->
+</a>

@@ -1,0 +1,51 @@
+
+// @ionic
+.button {
+
+  &.button-block {
+  }
+
+
+//  &.button-positive,
+//  &.button-assertive {
+//    text-shadow: rgba(#fff, 0.2) 0px 0px 1px, rgba(#000, 0.4) 1px 1px 1px;
+//  }
+
+
+  &.button-positive {
+    @include button-raised($positive);
+  }
+
+  &.button-assertive {
+    @include button-raised($assertive);
+  }
+
+  &.button-font-bold {
+    font-weight: bold;
+  }
+}
+
+
+// @ionic
+.button-large {
+  line-height: 56px;
+  font-size: 26px;
+
+  .icon:before {
+    line-height: 56px;
+  }
+}
+
+
+
+
+
+
+
+
+.button-pay-mobile-wallet {
+  border: none;
+  padding: 0;
+  text-align: center;
+  background-color: transparent;
+}

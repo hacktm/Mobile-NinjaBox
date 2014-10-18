@@ -1,0 +1,31 @@
+<ion-view title="Get started">
+    <ion-nav-buttons side="right">
+        <button class="button button-nav button-icon ion-checkmark" ng-click="signUp()">
+        </button>
+    </ion-nav-buttons>
+
+    <ion-content padding="false">
+
+        <form ng-submit="signUp()" novalidate>
+            <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+
+            <div class="list">
+                <h5 class="padding-left">Email</h5>
+                <label class="item item-input padding-left">
+                    <i class="icon placeholder-icon ion-email"></i>
+                    <input type="email" placeholder="" ng-model="startData.email">
+                </label>
+
+                <h5 class="padding-left">What name should we use to welcome you when you walk in?</h5>
+                <label class="item item-input padding-left">
+                    <i class="icon placeholder-icon ion-person"></i>
+                    <input type="text" placeholder="" ng-model="startData.greetingName" maxlength="12">
+                </label>
+
+                <div class="padding-horizontal color-gray"><small>(eg: "Mr. Smith" or "Nancy")</small></div>
+
+            </div>
+        </form>
+
+    </ion-content>
+</ion-view>

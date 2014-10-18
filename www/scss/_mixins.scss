@@ -1,0 +1,26 @@
+
+
+@mixin box-drop-shadow($z: 1) {
+  box-shadow: 0 #{$z}px #{round($z * 1.5)}px 0 rgba(0,0,0, 0.3);
+}
+
+
+@mixin button-raised($color, $color_change_percentage: 3%, $shadow_size: 2px) {
+  border-top: 1px solid lighten($color, $color_change_percentage + 1);
+  border-left: 1px solid lighten($color, $color_change_percentage + 1);
+  border-bottom: 1px solid darken($color, $color_change_percentage - 1);
+  border-right: 1px solid darken($color, $color_change_percentage - 1);
+//  border: 1px solid lighten($color, $color_change_percentage + 2);
+  background-color: lighten($color, $color_change_percentage);
+  @include box-drop-shadow($shadow_size);
+}
+
+@mixin single-line() {
+  overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+@function computed-line-height($relative-line-height) {
+	@return $relative-line-height * $line-height-base;
+}

@@ -1,0 +1,71 @@
+<ion-view title="Profile Settings">
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-nav ion-arrow-left-c" ui-sref="app.settings"></button>
+    </ion-nav-buttons>
+    <ion-nav-buttons side="right">
+        <button class="button button-assertive" ng-click="updateProfile()">Save</button>
+    </ion-nav-buttons>
+
+    <ion-content scroll="true" padding="false" class="has-header content">
+
+        <div class="list">
+
+            <br>
+
+            <label class="item item-input" ng-click="sharePhoto()">
+                <span class="input-label">Photo</span>
+                <img class="photo-thumb" ng-src="{{ userData.photoThumbUrl }}" alt="Your profile photo">
+            </label>
+            <div class="input-info">Tap the photo to change or remove it.</div>
+
+            <br>
+
+            <label class="item item-input">
+                <span class="input-label">Email</span>
+                <input type="email" value="userData.email" ng-model="userData.email" has-focus="focus.email">
+            </label>
+
+            <br>
+
+            <label class="item item-input">
+                <span class="input-label">Greeting</span>
+                <input type="text" value="userData.callName" ng-model="userData.callName" has-focus="focus.email">
+            </label>
+            <div class="input-info">What name should we use to welcome you when you walk in?</div>
+            
+            <br>
+            
+            <div class="l-inline clearfix">
+                <ion-radio ng-model="userData.gender" value="1" name="gender">Mr.</ion-radio>
+                <ion-radio ng-model="userData.gender" value="2" name="gender">Ms.</ion-radio>
+            </div>
+
+            <br>
+            
+            <label class="item item-input">
+                <span class="input-label">First name</span>
+                <input type="text" placeholder="John" ng-model="userData.firstName" has-focus="focus.firstName">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Last name</span>
+                <input type="text" placeholder="Smith" ng-model="userData.lastName" has-focus="focus.lastName">
+            </label>
+
+            <br>
+
+            <label class="item item-input">
+                <span class="item-label">Password</span>
+                <input type="password" ng-model="userData.password">
+            </label>
+            <label class="item item-input">
+                <span class="item-label">Repeat</span>
+                <input type="password" ng-model="userData.password_confirmation">
+            </label>
+            <div class="input-info">Leave these fields blank if you don't want to change your password</div>
+        </div>
+
+
+    </ion-content>
+</ion-view>
+
+
