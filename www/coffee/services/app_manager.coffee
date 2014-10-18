@@ -1,15 +1,8 @@
-gmApp.factory 'appManager', ($rootScope, $q, $state, dataStore, modalsRepo, apiService, bleService, checkinService) ->
+gmApp.factory 'appManager', ($rootScope, $q, $state, dataStore, modalsRepo, apiService, bleService, checkinService, EVENTS) ->
 
   _initializedAfterAppStart = false
   _initializedAfterAuthOk = false
 
-  _updateCurrentHost = ->
-    if dataStore.hosts?.length
-      for h in dataStore.hosts
-        # if nearest device belongs to this host
-        if h.devices.indexOf(dataStore.nearestDeviceUid) > -1
-          dataStore.currentHost = h
-          return
 
 
 
@@ -40,14 +33,15 @@ gmApp.factory 'appManager', ($rootScope, $q, $state, dataStore, modalsRepo, apiS
       checkinService.initialize()
 
 
+    enterMainAppState: ->
+      listener = $rootScope.$on EVENTS.BLE_SCAN_CYCLE_COMPLETE, ->
+        listener()
+        $state.go appStates.main
+
+
+
     # @return [$q promise]
-    loadHosts: (shouldUpdateCurrentHost = true) ->
-      deferred = $q.defer()
-      latlng = '0,0'
-      apiService.hosts(latlng, dataStore.nearestDevice).then (hosts) ->
-        dataStore.hosts = angular.copy(hosts)
-        _updateCurrentHost() if shouldUpdateCurrentHost
-        deferred.resolve dataStore.hosts
+    loadHosts: ->
       return deferred.promise
   }
 

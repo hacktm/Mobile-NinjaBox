@@ -41,6 +41,11 @@ gmApp.factory 'dataStore', ($rootScope, $localStorage, $q) ->
       enumerable: true
       get: -> if _nearestDevice? then _nearestDevice.uid else null
 
+    previousDeviceUid:
+      enumerable: true
+      get: -> if _previousDevice? then _previousDevice.uid else null
+
+
     hosts:
       enumerable: true
       get: -> _hosts
@@ -50,6 +55,11 @@ gmApp.factory 'dataStore', ($rootScope, $localStorage, $q) ->
       enumerable: true
       get: -> _currentHost
       set: (value) -> _currentHost = value; $rootScope.currentHost = _currentHost
+
+    currentHostId:
+      enumerable: true
+      get: -> if _currentHost? then _currentHost.business_id else null
+
 
     ratings:
       enumerable: true

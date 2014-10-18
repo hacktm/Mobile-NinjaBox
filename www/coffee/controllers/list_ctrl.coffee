@@ -5,18 +5,28 @@ gmApp.controller 'ListCtrl', ($scope, $state, $q, $timeout, $ionicPopup, appMana
   $scope.myPlaces = $state.is('app.hosts-subscribed') or $state.is('app.subscriptions')
   $scope.viewTitle = if $scope.myPlaces then 'My' else 'Nearby'
   $scope.hostsList = null
-  $scope.currentHost = dataStore.currentHost
 
-  _refresh = -> 
-    if dataStore.hosts?.length
-      if $scope.myPlaces
-        $scope.hostsList = dataStore.hosts.filter (host) -> host.subscribed == true 
-      else
-        $scope.hostsList = angular.copy(dataStore.hosts)
+
+
+  _loadHosts = ->
+    latlng = '0,0'
+    apiService.hosts(latlng, dataStore.nearestDevice).then (hosts) ->
+      dataStore.hosts = angular.copy(hosts)
+      # determine if in-store on the 1st host in list
+      if dataStore.hosts?.length
+        if dataStore.hosts[0].devices.indexOf(dataStore.nearestDeviceUid) > -1
+          dataStore.currentHost = dataStore.hosts[0]
+        else
+          dataStore.currentHost = null
+        $scope.currentHost = dataStore.currentHost
+        if $scope.myPlaces
+          $scope.hostsList = dataStore.hosts.filter (host) -> host.subscribed == true
+        else
+          $scope.hostsList = angular.copy(dataStore.hosts)
 
 
   $scope.tapRefresh = ->
-    appManager.loadHosts().then _refresh
+    _loadHosts()
 
   
   $scope.unsubscribe = (host) ->
@@ -37,11 +47,12 @@ gmApp.controller 'ListCtrl', ($scope, $state, $q, $timeout, $ionicPopup, appMana
 
 
 
-  $scope.$on EVENTS.BLE_SCAN_RESULT, (event, device) ->
-    # if a new device is in range or there's no device in range anymore (consumer probably moved)
-    if (device? && dataStore.nearestDeviceUid != device.uid) || (device == null && dataStore.nearestDeviceUid?)
-      appManager.loadHosts().then _refresh
-    dataStore.nearestDevice = device
+  $scope.$on EVENTS.BLE_SCAN_RESULT, (event) ->
+    if (dataStore.nearestDeviceUid != dataStore.previousDeviceUid)
+      _loadHosts()
 
 
-  _refresh()
+
+  _loadHosts()
+
+

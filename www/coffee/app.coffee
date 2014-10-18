@@ -4,8 +4,9 @@ gmApp = angular.module('greetme', ['ionic', 'ngStorage'])
 APP_ENV = 'staging'
 #APP_ENV =  'production'
 
-SERVER_BASE_URL = 'http://192.168.1.128:3000/consumers/api/v1'
-# SERVER_BASE_URL = 'http://ninjabox-greetme.herokuapp.com/consumers/api/v1'
+#SERVER_BASE_URL = 'http://192.168.1.128:3000/consumers/api/v1'
+SERVER_BASE_URL = 'http://ninjabox-greetme.herokuapp.com/consumers/api/v1'
+#SERVER_BASE_URL = 'https://rcugut.pagekite.me/consumers/api/v1'
 
 _BLE_LOG_LEVEL = 0 # 0=silent, 1=only_major_events, 2=everything
 
@@ -15,11 +16,11 @@ gmApp.constant('APP_CONFIG', {
 
   env: APP_ENV
 
-  api_base_url: (if ionic.Platform.isWebView() then SERVER_BASE_URL else 'http://localhost:3000/consumers/api/v1')
+  api_base_url: (if ionic.Platform.isWebView() then SERVER_BASE_URL else if APP_ENV == 'development' then 'http://localhost:3000/consumers/api/v1' else SERVER_BASE_URL)
   # api_base_url: SERVER_BASE_URL
 
 
-  ble_use_mock_service: true
+  ble_use_mock_service: false
 
 
   checkin_between_requests_pause_milliseconds: 60 * 1000  # 60 seconds
@@ -29,6 +30,7 @@ gmApp.constant('APP_CONFIG', {
 
 
 gmApp.constant('EVENTS', {
+  BLE_SCAN_CYCLE_COMPLETE: 'ble.scan.cycle-complete'
   BLE_SCAN_RESULT: 'ble.scan.result'
   NETWORK_ERROR: 'network.error'
   NETWORK_RECOVER: 'network.recover'
@@ -90,9 +92,9 @@ gmApp.config ($stateProvider, $urlRouterProvider, $httpProvider, $provide) ->
     abstract: true
     templateUrl: 'templates/app.html'
     controller: 'AppCtrl'
-    resolve:
-      hosts: (appManager) ->
-        return appManager.loadHosts()
+#    resolve:
+#      hosts: (appManager) ->
+#        return appManager.loadHosts()
 
 
   .state 'app.hosts-nearby',
@@ -216,7 +218,7 @@ gmApp.run ($rootScope, $ionicPlatform, $ionicTabsConfig, $state, $ionicLoading, 
 
     _enterAuthenticatedAppState = ->
       appManager.initializeAfterAuthOk()
-      $state.go appStates.main
+      appManager.enterMainAppState()
 
 
     #########################

@@ -69,7 +69,7 @@ gmApp.controller 'StartCtrl', ($scope, $ionicPopup, $ionicLoading, $state, $ioni
       accountManager.doLogin(email, password).then ((user) ->
         _loadingPopup.hide()
         $ionicViewService.nextViewOptions disableBack: true
-        $state.go appStates.main
+        appManager.enterMainAppState()
       ), (reason) ->
         _loadingPopup.hide()
         _showAlertPopup 'Authentication failed', 'Please enter a valid email & password.', 'userEmail'

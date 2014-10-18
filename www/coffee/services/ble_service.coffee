@@ -9,7 +9,7 @@ gmApp.factory 'bleService', ($rootScope, $q, dataStore, APP_CONFIG, EVENTS) ->
 
 
   _onBleScanResult = (device)->
-    if device
+    if device?
       #TODO: check if device has changed
       dataStore.previousDevice = dataStore.nearestDevice
       dataStore.nearestDevice = device
@@ -23,6 +23,7 @@ gmApp.factory 'bleService', ($rootScope, $q, dataStore, APP_CONFIG, EVENTS) ->
       dataStore.nearestDevice = null
       _nearestDevice = null
 
+    $rootScope.$broadcast EVENTS.BLE_SCAN_CYCLE_COMPLETE
 
 
 

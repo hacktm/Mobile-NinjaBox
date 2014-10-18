@@ -1,3 +1,5 @@
+window._DEVICE_UID = 1
+
 window.rewardingBleMock = (->
 
   _device_state = 0
@@ -12,7 +14,7 @@ window.rewardingBleMock = (->
     return {
       address: 'ff:ff:ff:ff:ff:01'
       rssi: -41
-      uid: 1
+      uid: _DEVICE_UID
       state: _device_state
       encdatahex: _encdata2hex
     }
@@ -34,10 +36,13 @@ window.rewardingBleMock = (->
 
       console.log('[BLEMOCK] .initializeAndStartPeriodicScan()') if _BLE_LOG_LEVEL > 0
 
-      console.log('[BLEMOCK] .onScanCycleFinished() - cycle: 1') if _BLE_LOG_LEVEL > 0
-      onScanCycleFinished(_scannedDeviceData())
+      cycleCount = 0
+      setTimeout ->
+        cycleCount += 1
+        console.log('[BLEMOCK] .onScanCycleFinished() - cycle: ' + cycleCount) if _BLE_LOG_LEVEL > 1
+        onScanCycleFinished(_scannedDeviceData())
+      , 1000
 
-      cycleCount = 1
       setInterval ->
         cycleCount += 1
         console.log('[BLEMOCK] .onScanCycleFinished() - cycle: ' + cycleCount) if _BLE_LOG_LEVEL > 1
