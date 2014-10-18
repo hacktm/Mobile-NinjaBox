@@ -1,15 +1,19 @@
 gmApp.factory 'bleService', ($rootScope, $q, dataStore, APP_CONFIG, EVENTS) ->
 
+  MAX_RETRY_COUNT = 3
+
   _ble = null
   _periodicScanStarted = false
   _nearestDevice = null
   _bleRequestInProgress = false
 
+  _retryCount = 0
 
 
 
   _onBleScanResult = (device)->
     if device?
+      _retryCount = 0
       #TODO: check if device has changed
       dataStore.previousDevice = dataStore.nearestDevice
       dataStore.nearestDevice = device
@@ -17,7 +21,8 @@ gmApp.factory 'bleService', ($rootScope, $q, dataStore, APP_CONFIG, EVENTS) ->
       $rootScope.$broadcast EVENTS.BLE_SCAN_RESULT, device
 
     else # no device detected
-      #TODO: better handle this (after number of scans, etc)
+      _retryCount += 1
+      return if _retryCount < MAX_RETRY_COUNT
       if dataStore.nearestDevice != null  &&  dataStore.previousDevice != dataStore.nearestDevice
         dataStore.previousDevice = dataStore.nearestDevice
       dataStore.nearestDevice = null

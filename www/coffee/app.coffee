@@ -4,9 +4,7 @@ gmApp = angular.module('greetme', ['ionic', 'ngStorage'])
 APP_ENV = 'staging'
 #APP_ENV =  'production'
 
-#SERVER_BASE_URL = 'http://192.168.1.128:3000/consumers/api/v1'
 SERVER_BASE_URL = 'http://ninjabox-greetme.herokuapp.com/consumers/api/v1'
-#SERVER_BASE_URL = 'https://rcugut.pagekite.me/consumers/api/v1'
 
 _BLE_LOG_LEVEL = 0 # 0=silent, 1=only_major_events, 2=everything
 
@@ -20,7 +18,7 @@ gmApp.constant('APP_CONFIG', {
   # api_base_url: SERVER_BASE_URL
 
 
-  ble_use_mock_service: false
+  ble_use_mock_service: true
 
 
   checkin_between_requests_pause_milliseconds: 60 * 1000  # 60 seconds
