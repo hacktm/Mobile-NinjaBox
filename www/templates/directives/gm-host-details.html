@@ -1,8 +1,10 @@
 
-<div class="panel">
-	<div class="panel-header" ng-if="host.devices.indexOf(device.uid) > -1">In range now</div>
+<div>
+    <div class="panel-header" ng-if="host.business_id == currentHost.business_id">
+        In range now
+    </div>
 
-    <div class="panel-body">
+	<div class="panel-body">
         <img class="panel-image" ng-src="{{ host.logo_square_thumb_url }}" alt="{{ host.name }}"/>
 
         <div class="panel-content">
@@ -12,7 +14,7 @@
         </div>
 
 
-        <div ng-transclude></div>
+        <div class="padding" ng-transclude></div>
 
     </div>
 </div>
