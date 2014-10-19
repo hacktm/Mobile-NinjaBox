@@ -9,25 +9,29 @@
 
             <div ng-if=" ! host.subscribed">
 
-                <button ng-if=" ! loading.optIn" ng-click="tap_optIn()" class="button button-block button-assertive">Opt-in</button>
-                <button ng-if="loading.optIn" class="button button-block button-clear button-stable icon ion-loading-c"></button>
+                <button ng-click="tap_optIn()" class="button button-block button-assertive">Opt-in</button>
 
-                <p class="text-center"><strong>Opt-in to let your host greet you.</strong></p>
-                <p class="text-center"><small>
-                    By opting-in, you agree to share your profile information with {{ host.name }}.<br>
-                    You can opt-out anytime under Settings.
-                </small></p>
+                <h3>Opt-in to let your host greet you.</h3>
+                <br>
+                <p>
+                    By opting-in, you agree to share <br>
+                    your profile information with <br>
+                    <strong>{{ host.name }}</strong>.
+                </p>
+                <p><small>(You can opt-out anytime under Settings.)</small></p>
 
             </div>
 
 
             <div ng-if="host.subscribed">
-
-                <p class="text-center"><strong>Opted-in</strong></p>
-                <p class="text-center"><small>
-                    You are sharing your profile information with {{ host.name }}.<br>
-                    You can opt-out anytime under Settings.
-                </small></p>
+                <br>
+                <h2>Opted-in</h2>
+                <br>
+                <p>
+                    You are sharing your profile information <br>
+                    with <strong>{{ host.name }}</strong>.
+                </p>
+                <p><small>(You can opt-out anytime under Settings.)</small></p>
 
             </div>
 

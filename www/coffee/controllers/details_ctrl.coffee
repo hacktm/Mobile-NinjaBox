@@ -1,4 +1,4 @@
-gmApp.controller 'DetailsCtrl', ($scope, $stateParams, $q, $timeout, $ionicPopup, dataStore, apiService, bleService, modalsRepo, EVENTS) ->
+gmApp.controller 'DetailsCtrl', ($scope, $stateParams, $q, $timeout, $ionicPopup, $ionicLoading, dataStore, apiService, bleService, modalsRepo, EVENTS) ->
 
   console.log('DetailsCtrl started')
 
@@ -26,19 +26,17 @@ gmApp.controller 'DetailsCtrl', ($scope, $stateParams, $q, $timeout, $ionicPopup
 
 
   $scope.tap_optIn = () ->
-    $scope.loading.optIn = true
+    $ionicLoading.show({ content: '<i class="icon ion-loading-c"></i>' })
     apiService.hostSubscribe($stateParams.hostId)
     .then (host) ->
       angular.extend($scope.host, host)
-      $ionicPopup.alert
-        title: "Opted-in!"
-        okType: 'button-assertive'
     .catch (reason) ->
+      $ionicLoading.hide()
       $ionicPopup.alert
         title: "Error"
         template: angular.toJson(reason).substr(0, 100)
     .finally () ->
-      $scope.loading.optIn = false
+      $ionicLoading.hide()
 
 
 

@@ -12,6 +12,7 @@ gmApp.factory 'dataStore', ($rootScope, $localStorage, $q) ->
   $rootScope.currentUser = _currentUser
 
   _getHostById = (id) ->
+    return if ! _hosts?.length
     id = ~~id # convert to boolean
     for h in _hosts
       return h if h.business_id == id
